@@ -4,7 +4,7 @@
 
 	<groupId>com.archicode</groupId>
 	<artifactId>pet-clinic</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
     <modules>
         <module>pet-clinic-data</module>
 		<module>pet-clinic-web</module>
@@ -46,7 +46,7 @@
 	<scm>
 		<connection>scm:git:https://github.com/TomaszKoz/pet-clinic</connection>
 		<developerConnection>scm:git:https://github.com/TomaszKoz/pet-clinic</developerConnection>
-	  <tag>pet-clinic-0.0.1</tag>
+	  <tag>HEAD</tag>
   </scm>
 
 
