@@ -38,15 +38,15 @@
 				<artifactId>maven-release-plugin</artifactId>
 				<configuration>
 					<goals>install</goals>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
 
 	<scm>
-		<connection>scm:git:https://github.com/TomaszKoz/pet-clinic</connection>
 		<developerConnection>scm:git:https://github.com/TomaszKoz/pet-clinic</developerConnection>
-	  <tag>HEAD</tag>
+	  	<tag>HEAD</tag>
   </scm>
 
 
