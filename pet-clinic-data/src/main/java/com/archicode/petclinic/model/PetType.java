@@ -1,18 +1,15 @@
 package com.archicode.petclinic.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * @author Tomasz.Kozlowski (created on 27.09.2018)
  */
-public class PetType {
+@Getter
+@Setter
+public class PetType extends BaseEntity {
 
     private String name;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
 }
