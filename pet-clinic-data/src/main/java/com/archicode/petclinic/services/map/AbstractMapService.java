@@ -7,6 +7,9 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * @author Tomasz Kozlowski (created on 29.09.2018)
+ */
 public abstract class AbstractMapService<T, ID> implements CrudService<T, ID> {
 
     private Map<ID, T> map = new HashMap<>();
