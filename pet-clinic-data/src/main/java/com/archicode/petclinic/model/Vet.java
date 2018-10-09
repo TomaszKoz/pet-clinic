@@ -3,6 +3,7 @@ package com.archicode.petclinic.model;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -12,6 +13,6 @@ import java.util.Set;
 @Setter
 public class Vet extends Person {
 
-    private Set<Specialty> specialities;
+    private Set<Specialty> specialities = new HashSet<>();
 
 }
