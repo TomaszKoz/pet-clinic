@@ -1,7 +1,9 @@
 package com.archicode.petclinic.services.map;
 
 import com.archicode.petclinic.model.Vet;
+import com.archicode.petclinic.services.SpecialityService;
 import com.archicode.petclinic.services.VetService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,4 +12,26 @@ import org.springframework.stereotype.Service;
 @Service
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
+    private final SpecialityService specialityService;
+
+    @Autowired
+    public VetServiceMap(SpecialityService specialityService) {
+        this.specialityService = specialityService;
+    }
+
+    @Override
+    public Vet save(Vet vet) {
+        if (vet != null) {
+            if(vet.getSpecialities() != null) {
+                vet.getSpecialities().forEach(speciality -> {
+                    if (speciality.getId() == null) {
+                        specialityService.save(speciality);
+                    }
+                });
+            }
+            return super.save(vet);
+        } else {
+            return null;
+        }
+    }
 }
