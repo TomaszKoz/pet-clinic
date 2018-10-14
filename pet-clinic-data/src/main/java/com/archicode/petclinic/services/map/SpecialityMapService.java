@@ -8,5 +8,5 @@ import org.springframework.stereotype.Service;
  * @author Tomasz.Kozlowski (created on 09.10.2018)
  */
 @Service
-public class SpecialityServiceMap extends AbstractMapService<Speciality, Long> implements SpecialityService {
+public class SpecialityMapService extends AbstractMapService<Speciality, Long> implements SpecialityService {
 }
