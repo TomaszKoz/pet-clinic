@@ -1,10 +1,7 @@
 package com.archicode.petclinic.bootstrap;
 
 import com.archicode.petclinic.model.*;
-import com.archicode.petclinic.services.OwnerService;
-import com.archicode.petclinic.services.PetTypeService;
-import com.archicode.petclinic.services.SpecialityService;
-import com.archicode.petclinic.services.VetService;
+import com.archicode.petclinic.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -21,13 +18,15 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
 
     @Autowired
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -103,6 +102,14 @@ public class DataLoader implements CommandLineRunner {
         vetService.save(vet2);
 
         System.out.println("Loaded Vets...");
+
+        Visit visit = new Visit();
+        visit.setDescription("Sneezy Kitty");
+        visit.setDate(LocalDate.now());
+        visit.setPet(owner2Pet);
+        visitService.save(visit);
+
+        System.out.println("Loaded Visits..");
     }
 
 }
