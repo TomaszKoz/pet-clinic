@@ -5,12 +5,14 @@ import com.archicode.petclinic.services.OwnerService;
 import com.archicode.petclinic.services.PetService;
 import com.archicode.petclinic.services.PetTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 /**
  * @author Tomasz Kozlowski (created on 29.09.2018)
  */
 @Service
+@Profile({"default", "map"})
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
     private final PetService petService;

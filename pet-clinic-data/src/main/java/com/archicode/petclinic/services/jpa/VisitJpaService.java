@@ -2,7 +2,7 @@ package com.archicode.petclinic.services.jpa;
 
 import com.archicode.petclinic.model.Visit;
 import com.archicode.petclinic.repositories.VisitRepository;
-import com.archicode.petclinic.services.CrudService;
+import com.archicode.petclinic.services.VisitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ import java.util.Set;
  */
 @Service
 @Profile("springDataJpa")
-public class VisitJpaService implements CrudService<Visit, Long> {
+public class VisitJpaService implements VisitService {
 
     private final VisitRepository visitRepository;
 
@@ -26,7 +26,7 @@ public class VisitJpaService implements CrudService<Visit, Long> {
 
     @Override
     public Visit save(Visit visit) {
-        return save(visit);
+        return visitRepository.save(visit);
     }
 
     @Override

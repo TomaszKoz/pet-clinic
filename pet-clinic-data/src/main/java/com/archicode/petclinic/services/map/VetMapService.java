@@ -4,12 +4,14 @@ import com.archicode.petclinic.model.Vet;
 import com.archicode.petclinic.services.SpecialityService;
 import com.archicode.petclinic.services.VetService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 /**
  * @author Tomasz Kozlowski (created on 29.09.2018)
  */
 @Service
+@Profile({"default", "map"})
 public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
 
     private final SpecialityService specialityService;
