@@ -47,12 +47,16 @@ class OwnerJpaServiceTest {
         Owner returnOwner = new Owner();
         returnOwner.setId(1L);
         returnOwner.setLastName(LAST_NAME);
+        Set<Owner> returnedOwners = new HashSet<>();
+        returnedOwners.add(returnOwner);
 
-        when(ownerRepository.findByLastName(any())).thenReturn(returnOwner);
 
-        Owner smith = ownerService.findByLastName(LAST_NAME);
-        assertEquals(LAST_NAME, smith.getLastName());
-        verify(ownerRepository).findByLastName(any());
+        when(ownerRepository.findAllByLastNameLikeIgnoreCase(any()))
+                .thenReturn(returnedOwners);
+
+        Set<Owner> owners = ownerService.findAllByLastNameLike(LAST_NAME);
+        assertEquals(owners.size(), 1);
+        verify(ownerRepository).findAllByLastNameLikeIgnoreCase(any());
     }
 
     @Test

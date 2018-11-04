@@ -6,7 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * @author Tomasz Kozlowski (created on 20.10.2018)
@@ -68,15 +69,15 @@ class OwnerMapServiceTest {
 
     @Test
     void findByLastName() {
-        Owner owner = ownerMapService.findByLastName(lastName);
-        assertNotNull(owner);
-        assertEquals(lastName, owner.getLastName());
+        Set<Owner> owners = ownerMapService.findAllByLastNameLike(lastName);
+        assertNotNull(owners);
+        assertEquals(lastName, owners.iterator().next().getLastName());
     }
 
     @Test
     void findByLastNameNotFound() {
-        Owner owner = ownerMapService.findByLastName("Foo");
-        assertNull(owner);
+        Set<Owner> owner = ownerMapService.findAllByLastNameLike("Foo");
+        assertEquals(owner.size(), 0);
     }
 
 }
