@@ -10,3 +10,4 @@
 ### Maven ###
 *.releaseBackup
 release.properties
+target
